@@ -117,19 +117,19 @@ function plot2Data(id, data, name){
 					backgroundColor: 'rgba(50, 0, 150, 0.5)',borderColor: [],borderWidth: 1,
 					barThickness : 5,
 				},
-				{
-					type: 'line',
-					label: 'curve',
-					data: curve,
-					fill:false,
-					//xAxisID: 'x-axis-2',
-					lineTension: 0.1,
-					borderColor: "rgba(0, 0, 0, 0.9)",  pointBackgroundColor: "rgba(0, 0, 0, 0.9)",
-					pointBorderWidth: 0, pointHoverRadius: 3, borderWidth: 5,
-					pointHoverBorderWidth: 0, pointRadius: 0, pointHitRadius: 5,
+				// {
+					// type: 'line',
+					// label: 'curve',
+					// data: curve,
+					// fill:false,
+					// //xAxisID: 'x-axis-2',
+					// lineTension: 0.1,
+					// borderColor: "rgba(0, 0, 0, 0.9)",  pointBackgroundColor: "rgba(0, 0, 0, 0.9)",
+					// pointBorderWidth: 0, pointHoverRadius: 3, borderWidth: 5,
+					// pointHoverBorderWidth: 0, pointRadius: 0, pointHitRadius: 5,
 					
-					//yAxisID: 'pdat',
-				}
+					// //yAxisID: 'pdat',
+				// }
 			]
 		},
 		options: {
