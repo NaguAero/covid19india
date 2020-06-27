@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Covid-19 Data Visualtization</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<!-- <div class="fh5co-loader"></div> -->
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-3">
+						<div id="fh5co-logo"><a href="index.html">Covid-19 in India</a></div>
+					</div>
+					<div class="col-xs-9 text-right menu-1">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="tests.html">Test Data</a></li>
+							<li class="has-dropdown active">
+								<a href="#">StateWise</a>
+								<ul class="dropdown">
+									<li><a href="states.html">Overall</a></li>
+									<li><a href="stateDailyCases.html">Daily Cases</a></li>
+									<li><a href="DistrictWise.html">District-Wise</a></li>
+									
+								</ul>
+							</li>
+							
+							<li><a href="more.html">More</a></li>
+							
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	<div class="container-wrap">
+			
+		<div id="fh5co-work">
+			<div class="row">
+				<div class="col-md-6 animate-box">
+					<h4>Share of each State: Total Cases </h4>
+					<canvas id="statepie" style="width: 100%; height:400px;" >
+							</canvas>
+						
+					<button id = "allstdat" type="button"class = "btn-success">All</button>
+					<button id = "top5" type="button" class = "btn-success">Top 5 States</button>
+					<button id = "top10" type="button" class = "btn-primary">Top 10 States</button>
+					
+				</div>
+				<div class="col-md-6 animate-box">
+					
+					<h4>States with Total Cases above 10000</h4>
+					<canvas id="mh" style="width: 100%; height:400px;">
+					</canvas>
+				</div>
+				<div class="col-md-6 animate-box">
+					<br />
+					<h4>States with Total Cases between 5000-10000</h4>
+					<canvas id="allstates5_10" style="width: 100%; height:400px;">
+					</canvas>
+					
+				</div>
+				<div class="col-md-6 animate-box">
+					<br />
+					<h4>States with Total Cases between 1000-5000</h4>
+					<canvas id="allstates1_5" style="width: 100%; height:400px;">
+					</canvas>
+				</div>
+				<div class="col-md-6 animate-box">
+					<br />
+					<h4>States with Total Cases between 100-1000</h4>
+					<canvas id="allstatesle1" style="width: 100%; height:400px;">
+					</canvas>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-4 fh5co-widget">
+					<h4>Covid-19: Data Visualtization</h4>
+					<p>The data is complied and presented in the current form by <b>Dr. Nagendra Kumar</b></p>
+					<ul class="fh5co-footer-links">
+						<li>Data source: <a href="https://api.covid19india.org/" target= "_blank"><b>api.covid19india.org</b></a> </li>
+						
+					</ul>
+				</div>
+				
+
+				<div class="col-md-4 col-md-push-1">
+					<h4>Links</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://ae.iitm.ac.in/~parama/index.html">PARAMA Home</a></li>
+						<li><a href="index.html">Home </a></li>
+						<li><a href="tests.html">Tests Data </a></li>
+						<li><a href="states.html">StateWise</a></li>
+						<li><a href="more.html">More</a></li>
+						
+					</ul>
+				</div>
+
+				<div id= "contact" class="col-md-4">
+					<h4> Contact Information</h4>
+					<h5> Dr. Nagendra Kumar </h5>
+					<ul class="fh5co-footer-links">
+						<li>#225 CTC, <br><a href="https://ae.iitm.ac.in">Department of Aerospace Engineering,</a><br>
+						<a href="https://www.iitm.ac.in/">IIT Madras</a></li>
+						<li><a href="tel://04422575917">(044) 2257 5917</a></li>
+						<li><a href="mailto:nag.aero@gmail.com">nag.aero@gmail.com</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; Rockets and Missiles Lab</small> 
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery 
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap 
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup 
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	
+	<script src="js/jquery.stateplot.js"></script>
+
+	</body>
+</html>
+
