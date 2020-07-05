@@ -86,7 +86,8 @@ function plotData(id, data){
 	  stacked :  true,
 	  id : "bar-x-axis1",
 	  display : true,
-        ticks: {maxRotation: 00,minRotation: 45,fontSize: 12,offsetGridLines: false,}
+        ticks: id=='mh'? {maxRotation: 00,minRotation: 0,fontSize: 14,offsetGridLines: false,} :
+		{maxRotation: 00,minRotation: 45,fontSize: 12,offsetGridLines: false,}
       }],
       yAxes: [{
 	  stacked : false,
@@ -227,9 +228,11 @@ request2.open('GET', api2, true)
 	var totalcases = data.statewise;
 	
 	var stdata = {};
+	
 	var cnf_5k = {};
+	var cnf_10k_50k = {};
+	var cnf_1k_10k = {};
 	var cnf_1k_5k = {};
-	var cnf_5k_10k = {};
 	var cnf_1k = {};
 	
 	var dynamicColors = function() {
@@ -252,17 +255,18 @@ request2.open('GET', api2, true)
 		var rndactcolor = dynamicColors()
 		stdata[stn] = [stconf, stact, strec, stdec,rndcolor,rndactcolor]
 		
-		stconf > 10000? cnf_5k[stn]=[stact, stconf, stdec, strec]:
-		(stconf < 10000 && stconf > 5000)? cnf_5k_10k[stn]=[stact, stconf, stdec, strec]:
-		(stconf < 5000 && stconf > 1000)? cnf_1k_5k[stn]=[stact, stconf, stdec, strec]:
+		stconf > 50000? cnf_5k[stn]=[stact, stconf, stdec, strec]:
+		(stconf < 50000 && stconf > 10000)? cnf_10k_50k[stn]=[stact, stconf, stdec, strec]:
+		(stconf < 10000 && stconf > 1000)? cnf_1k_10k[stn]=[stact, stconf, stdec, strec]:
+		// (stconf < 5000 && stconf > 1000)? cnf_1k_5k[stn]=[stact, stconf, stdec, strec]:
 		stconf>100?cnf_1k[stn] = [stact, stconf, stdec, strec]:0	
 		//conf>100?statename[state] = [conf] :0
 	}
 	
 	plotData('mh', cnf_5k)
-	plotData('allstates5_10',cnf_5k_10k)
-	plotData('allstates1_5',cnf_1k_5k)
-	plotData('allstatesle1',cnf_1k)
+	plotData('allstates10_50',cnf_10k_50k)
+	plotData('allstates1_10',cnf_1k_10k)
+	plotData('allstates1',cnf_1k)
 	plotstatepieData('statepie',stdata)
 	
 	
