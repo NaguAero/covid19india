@@ -28,19 +28,19 @@ function plotData(id, data){
 					barThickness :  10,
 				},
 				{
-					label: 'Recovered',
-					fill:false,
-					data: recovered_data,
-					backgroundColor: 'rgba(0, 100, 0, 1)',borderColor: [],borderWidth: 1,
-					barThickness :  10,
-				},
-				{
 					label: 'Active Cases',
 					fill:false,
 					data: active_data,
 					backgroundColor: 'rgba(51, 51, 255, 0.8)',borderColor: [],borderWidth: 1,
 					barThickness : 10,
 					
+				},
+				{
+					label: 'Recovered',
+					fill:false,
+					data: recovered_data,
+					backgroundColor: 'rgba(0, 100, 0, 1)',borderColor: [],borderWidth: 1,
+					barThickness :  10,
 				},
 				{
 					label: 'Total Cases',
