@@ -15,7 +15,19 @@ function plot2Data(id, data, mds, selid){
 	dec_data.push(mydat[xx][3])
 	rec_data.push(mydat[xx][2])
 	}
-		
+	var lstnum = Object.keys(conf_data).length-1;
+	
+	$("p:first").text("Cummulative Cases");
+	$("p:eq(1)").text("Daily Cases on: "+date_name[lstnum]);
+	var nc = conf_data[lstnum]
+	var nr = rec_data[lstnum]
+	var nd = dec_data[lstnum]
+	$("span.fh5co-counter.js-counter:eq(4)").attr("data-to",nc).css( "color", "rgba(0,0,0,0.8)"); 
+	$("span.fh5co-counter.js-counter:eq(5)").attr("data-to",nr).css( "color", "rgba(0,100,0,1)" ); 
+	$("span.fh5co-counter.js-counter:eq(6)").attr("data-to",nd).css( "color", "rgba(255,0,0,0.8)" );
+	
+	
+	
 	var ctx = document.getElementById(id).getContext('2d');
 	var myChart = new Chart(ctx, {
 		type: 'bar',
@@ -62,7 +74,7 @@ function plot2Data(id, data, mds, selid){
 	labels: {display: true,},
     responsive: false,
 	title:{
-		display: (id == 'dailyindia') ? false : true,
+		display: (id == 'dailyindia') ? false :false,
 		text: 'Daily',
 		fontSize: 16,
 	},
@@ -108,6 +120,15 @@ selid.on('change', function () {
 		dec_data1[i] = updata[i][3]
 		
 	}
+	var nc1 = conf_data1[lstnum]
+	var nr1 = rec_data1[lstnum]
+	var nd1 = dec_data1[lstnum]
+	
+	
+	
+	$("span.fh5co-counter.js-counter:eq(4)").text(nc1).css( "color", "rgba(0,0,0,0.8)"); 
+	$("span.fh5co-counter.js-counter:eq(5)").text(nr1).css( "color", "rgba(0,100,0,1)" ); 
+	$("span.fh5co-counter.js-counter:eq(6)").text(nd1).css( "color", "rgba(255,0,0,0.8)" );
 		myChart.data.labels = date_name1
 		myChart.data.datasets[0].data = dec_data1
 		myChart.data.datasets[1].data = rec_data1
@@ -136,6 +157,20 @@ function plot_st_cumData(id, data, mds, selid){
 		dec_data.push(mydat[i][4])
 	}
 	stname.push("Deceased", "Recovered", "Active Cases", "Total Cases")
+	var lstnum = Object.keys(conf_data).length-1
+	
+	var ntotc = conf_data[lstnum]
+	var ntota = act_data[lstnum]
+	var ntotr = rec_data[lstnum]
+	var ntotd = dec_data[lstnum]
+	// var nc = totalcases[0].deltaconfirmed
+	// var nr = totalcases[0].deltarecovered
+	// var nd = totalcases[0].deltadeaths
+	
+	$("span.fh5co-counter.js-counter:first").attr("data-to",ntotc).css( "color", "rgba(0,0,0,0.8)"); 
+	$("span.fh5co-counter.js-counter:eq(1)").attr("data-to",ntota).css( "color", "rgba(51,51,255,0.8)" ); 
+	$("span.fh5co-counter.js-counter:eq(2)").attr("data-to",ntotr).css( "color", "rgba(0,100,0,1)" ); 
+	$("span.fh5co-counter.js-counter:eq(3)").attr("data-to",ntotd).css( "color", "rgba(255,0,0,0.8)" );
 	
 	var ctx = document.getElementById(id).getContext('2d');
 	var myChart = new Chart(ctx, {
@@ -209,7 +244,7 @@ else {return [mylbl+': ' + currentValue + addline] ;}
 	labels: {display: true,},
     responsive: false,
 	title:{
-		display: true,
+		display: false,
 		text: 'Cummulative',
 		fontSize: 16,
 	},
@@ -268,6 +303,19 @@ selid.on('change', function () {
 		dec_data1[i] = updata[i][4]
 		
 	}
+	var lstnum = Object.keys(conf_data1).length-1
+	
+	var ntotc1 = conf_data1[lstnum]
+	var ntota1 = act_data1[lstnum]
+	var ntotr1 = rec_data1[lstnum]
+	var ntotd1 = dec_data1[lstnum]
+	var xx = $("span.fh5co-counter.js-counter:first")
+	
+	
+	$("span.fh5co-counter.js-counter:first").text(ntotc1).css( "color", "rgba(0,0,0,0.8)"); 
+	$("span.fh5co-counter.js-counter:eq(1)").text(ntota1).css( "color", "rgba(51,51,255,0.8)" ); 
+	$("span.fh5co-counter.js-counter:eq(2)").text(ntotr1).css( "color", "rgba(0,100,0,1)" ); 
+	$("span.fh5co-counter.js-counter:eq(3)").text(ntotd1).css( "color", "rgba(255,0,0,0.8)" );
 	//console.log(date_name,date_name1)
 		myChart.data.labels = date_name1
 		myChart.data.datasets[0].data = dec_data1
@@ -416,6 +464,7 @@ request.onload = function() {
 	//plotData('api_chart', state_data)
 	plot2Data('maha', state_mh, 'Maharashtra', $('#st_sel'))
 	plot_st_cumData('maha_cum',act_plotdata, 'Maharashtra', $('#st_sel'))
+	
 	
 }
 

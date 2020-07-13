@@ -931,7 +931,6 @@ request2.open('GET', api2, true)
 	}
 	
 	
-	
 	dailyindia = [dailyconf_date,daily_conf,daily_rec,daily_dec,fx,xval]
 	rateindia = [dailyconf_date1,drateu,drateru,dratedu,avgdate,rate3days,rate3daysr,rate3daysd,postivity,rate3daysp]
 	cumindia = [dailyconf_date1, totconf1, totact1, totrec1, totdec1]
