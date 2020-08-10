@@ -507,7 +507,7 @@ $("#0").on("click", function (){
 $("#1").click( function (){
 		myChart.options.scales.yAxes[0] = {
 				type : 'logarithmic',
-				ticks: {beginAtZero: true,fontSize: 16, max: 500000,
+				ticks: {beginAtZero: true,fontSize: 16, max: 3000000,
 				  callback: function(value, index, values) {//needed to change the scientific notation results from using logarithmic scale
 				      return Number(value.toString());//pass tick values as a string into Number function
 				      }
@@ -520,8 +520,8 @@ $("#1").click( function (){
                         allcountline.ticks.push(1000);
                         allcountline.ticks.push(10000);
 						allcountline.ticks.push(100000);
-						allcountline.ticks.push(200000);
-						allcountline.ticks.push(500000);
+						allcountline.ticks.push(1000000);
+						allcountline.ticks.push(3000000);
                       }
 		};
 		
